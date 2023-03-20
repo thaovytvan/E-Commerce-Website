@@ -38,7 +38,7 @@
             }
         }
         .text-content{
-            color: white;
+            color: var(--white);
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -76,16 +76,16 @@
             .more{
                 display: flex;
                 justify-content: center;
-                gap: 20px;
+                gap: var(--default-gap-with-sm);
                 .banner-more{
                    text-transform: uppercase;
                    font-size: 13px;
                    font-weight: 500;
-                   border: 2px solid white; 
+                   border: 2px solid var(--white); 
                    padding: 10px 20px;
                    cursor: pointer;
                    &.shop{
-                    background-color: white;
+                    background-color: var(--white);
                     color: black;
                    }
                    &:hover{

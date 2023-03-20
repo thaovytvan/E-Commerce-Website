@@ -9,7 +9,7 @@
         align-items: center;
         flex-direction: column;
         text-align: center;
-        gap: 20px;
+        gap: var(--default-gap-with-sm);
         @include md{
             flex-flow: wrap;
             align-items: flex-start;

@@ -1,1 +1,156 @@
 @import "../../css-config/mixins.scss";
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 100;
+
+    .opac-layer {
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .cart-content {
+        width: 100%;
+        height: 100%;
+        background: var(--white);
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        transform: rotateX(100%);
+        animation: sliderCartWindow 0.3s ease forwards;
+
+        @include md {
+            width: 340px;
+        }
+
+        .cart-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: var(--default-layout-padding-cart);
+            border-bottom: var(--border-rgba);
+
+            .heading {
+                flex-grow: 1;
+                margin-bottom: 0;
+                font-size: 20px;
+                text-transform: uppercase;
+
+            }
+
+            .close-btn {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                cursor: pointer;
+
+                svg {
+                    font-size: 16px;
+                }
+
+                .text {
+                    text-transform: uppercase;
+                    font-size: 14px;
+                }
+
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        .empty-cart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--default-gap-with-sm);;
+
+            svg {
+                font-size: 120px;
+                opacity: 0.1;
+            }
+
+            .return-btn {
+                outline: 0;
+                border: 0;
+                height: 50px;
+                width: 180px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                color: var(--white);
+                background-color: var(--purple);
+                border-bottom: var(--border-bottom);
+                gap: var(--default-gap-with-sm);
+                cursor: pointer;
+
+            }
+        }
+
+        .cart-footer {
+            border-top: var(--border-rgba);
+
+            .subtotal {
+                padding: var(--default-layout-padding-cart);
+                border-bottom: var(--border-rgba);
+                display: flex;
+                justify-content: space-between;
+
+                .text {
+                    margin-bottom: 0;
+                    font-size: 20px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+
+                    &.total {
+                        color: var(--purple);
+                    }
+                }
+            }
+
+            .button {
+                padding: var(--default-layout-padding-cart);
+
+                .checkout-btn {
+                    outline: 0;
+                    border: 0;
+                    height: 50px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 16px;
+                    color: var(--white);
+                    background-color: var(--purple);
+                    border-bottom: var(--border-bottom);
+                    gap: var(--default-gap-with-sm);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideCartWindow {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}

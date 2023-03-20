@@ -3,8 +3,8 @@
     width: 100%;
     padding: 0 20px;
     background-color: #212121;
-    color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--white);
+    border-bottom: var(--border-rgba);
     z-index: 100;
     @include md{
         padding: 0 40px;
@@ -49,7 +49,7 @@
         .right{
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: var(--default-gap-with-sm);
             @include md{
                 gap: 25px;
             }

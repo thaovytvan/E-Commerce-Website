@@ -12,6 +12,10 @@ import { Context } from "~/utils/context";
 import "./Header.scss";
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [showCart, setShowCart] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
+    const {cartCount} =useContext(Context);
+    const navigate = useNavigate();
     const handleScroll=()=>{
         const offset =window.scrollY;
         if (offset > 100){
@@ -24,26 +28,29 @@ const Header = () => {
     useEffect(()=>{
        window.addEventListener("scroll", handleScroll) ;
     }, []);
-    return <div>
+    return <>
         <header className={`main-header ${scrolled ? 'sticky-header':''}`} >
             <div className="header-content">
                 <ul className="left">
-                    <li>Home</li>
+                    <li onClick={() => navigate("/")} >Home</li>
                     <li>About</li>
                     <li>Categories</li>
                 </ul>
-                <div className="center">TVSTORE.</div>
+                <div className="center" onClick={() => navigate("/")} >TVSTORE.</div>
                 <div className="right">
-                    <TbSearch/>
+                    <TbSearch  onClick={() => setShowSearch(true)}/>
                     <AiOutlineHeart/>
-                    <span className="cart-icon">
+                    <span className="cart-icon" onClick={()=>setShowCart(true)}>
                         <CgShoppingCart/>
-                        <span>5</span>
+                        {!!cartCount && <span>{cartCount}</span>}
                     </span>
                 </div>
             </div>
         </header>
-    </div>;
+        {showCart && <Cart setShowCart={setShowCart} />}
+        {showSearch && <Search setShowSearch={setShowSearch} />}
+
+    </>;
 };
 
 export default Header;

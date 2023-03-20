@@ -105,9 +105,9 @@
                         justify-content: center;
                         cursor: pointer;
                         font-size: 16px;
-                        color: white;
-                        background-color: #8e2de8;
-                        border-bottom: 3px solid #6516aa ;
+                        color: var(--white);
+                        background-color: var(--purple);
+                        border-bottom: var(--border-bottom) ;
                         flex-grow: 1;
                         gap:20px;
                         @include lg{

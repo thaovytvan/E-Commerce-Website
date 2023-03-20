@@ -1,0 +1,21 @@
+@import 'normalize.css';
+:root {
+    --primary: #fe2c55;
+    --black: #000;
+    --text-color: #161823;
+    --white: #fff;
+    --purple: #8e2de8;
+    --border-bottom: var(--border-bottom);
+    --border-rgba: 1px solid rgba(0, 0, 0, 0.1);
+
+    //Default layout
+    --default-layout-padding-cart: 20px 15px;
+    --default-gap-with-sm: 20px;
+    
+}
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
