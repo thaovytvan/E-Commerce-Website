@@ -1,4 +1,5 @@
 import {useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import "./Cart.scss";
 import {MdClose} from "react-icons/md";
 import {BsCartX} from "react-icons/bs";
@@ -8,6 +9,7 @@ import { makePaymentRequest } from "~/utils/api";
 
 import {loadStripe} from "@stripe/stripe-js"
 const Cart = ({setShowCart}) => {
+    const navigate = useNavigate();
     const {cartItems, cartSubTotal } = useContext(Context);
      const stripePromise =loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
     const handlePayment = async () =>{
@@ -39,7 +41,7 @@ const Cart = ({setShowCart}) => {
                 { !cartItems?.length && <div className="empty-cart">
                     <BsCartX/>
                     <span>No products in the cart.</span>
-                    <button className="return-btn">RETURN TO SHOP</button>
+                    <button className="return-btn" onClick={() => {navigate("/");setShowCart(false)}}>RETURN TO SHOP</button>
                 </div>}
                 {!!cartItems?.length && <>
                     <CartItem/>
